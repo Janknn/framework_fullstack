@@ -1,11 +1,10 @@
 <template>
   <MusicLayout>
     <template #title>
-      Liste de mes musiques
+      Musiques de la playlist: {{ playlist.title }}
     </template>
     <template #action>
-      <Link v-if="$page.props.isAdmin" :href="route('tracks.create')"
-        class="bg-blue-500 hover:bg-blue-700 text-white font-bold rounded py-2 px-4">
+      <Link :href="route('tracks.create')" class="bg-blue-500 hover:bg-blue-700 text-white font-bold rounded py-2 px-4">
       Créer une musique
       </Link>
     </template>
@@ -20,12 +19,13 @@ import MusicLayout from '@/Layouts/MusicLayout.vue';
 import TrackList from '@/Components/Track/TrackList.vue';
 
 export default {
-  name: 'Index',
+  name: 'Show',
   components: {
     MusicLayout,
     TrackList,
   },
   props: {
+    playlist: Object,
     tracks: Array,
   },
 }
